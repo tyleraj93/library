@@ -20,46 +20,29 @@ addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 addBookToLibrary("Awaken the Giant Within", "Anthony Robbins", 538, true)
 addBookToLibrary("Dune", "Frank Herbert", 884, true)
 
-const container = document.querySelector(".table-container");
-
-const table = document.createElement("table");
-const thead = document.createElement("thead");
-const tbody = document.createElement("tbody");
-
-table.appendChild(thead);
-table.appendChild(tbody);
-
-const headerRow = document.createElement("tr");
-["Title", "Author", "Pages", "Read"].forEach(headerText => {
-    const th = document.createElement("th");
-    th.textContent = headerText;
-    headerRow.appendChild(th);
-});
-thead.appendChild(headerRow);
+const container = document.querySelector(".grid-container");
 
 myLibrary.forEach(book => {
-    const row = document.createElement("tr");
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-    const titleCell = document.createElement("td");
-    titleCell.textContent = book.title;
-    row.appendChild(titleCell);
+    const titleSpot = document.createElement("h1");
+    titleSpot.textContent = book.title;
+    card.appendChild(titleSpot);
 
-    const authorCell = document.createElement("td");
-    authorCell.textContent = book.author;
-    row.appendChild(authorCell);
-    
-    const pagesCell = document.createElement("td");
-    pagesCell.textContent = book.pages;
-    row.appendChild(pagesCell);
+    const authorSpot = document.createElement("h2");
+    authorSpot.textContent = book.author;
+    card.appendChild(authorSpot);
 
-    const readCell = document.createElement("td");
-    readCell.textContent = book.info();
-    row.appendChild(readCell);
+    const pagesSpot = document.createElement("p");
+    pagesSpot.textContent = book.pages;
+    card.appendChild(pagesSpot);
 
-    tbody.appendChild(row);
+    const readSpot = document.createElement("p");
+    readSpot.textContent = book.read;
+    card.appendChild(readSpot);
+    container.appendChild(card);
 });
-
-container.appendChild(table)
 
 const showButton = document.getElementById("showDialog");
 const addBookDialog = document.getElementById("add-book-dialog");
@@ -69,11 +52,3 @@ const confirmBtn = addBookDialog.querySelector("#confirmBtn");
 showButton.addEventListener("click", () => {
     addBookDialog.showModal();
 });
-
-
-
-
-
-
-
-
