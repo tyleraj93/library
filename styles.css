@@ -1,3 +1,10 @@
+:root {
+    --amaranthPurple: #982649;
+    --battleshipGray: #7C8483;
+    --airBlue: #71A2B6;
+    --ghostWhite: #fef9ff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,13 +12,15 @@
 }
 
 body {
-    margin: 15px;
+    margin: 8vh;
+    background-color: var(--airBlue);
 }
 
 .grid-container {
     display: grid;
-    gap: 5vw;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    grid-template-columns: repeat(auto-fit, minmax(14vw, 1fr));
+    grid-template-rows: minmax(45vh, 1fr);
+    gap: 2vw;
 }
 
 .card {
@@ -19,4 +28,18 @@ body {
     grid-template-columns: 1fr;
     align-items: center;
     text-align: center;
+    padding: 0 1vw;
+    background-color: var(--battleshipGray);
+    color: var(--ghostWhite);
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+    border: 1px solid black;
+    border-left: solid 1vw var(--amaranthPurple);
+}
+
+#showDialog {
+    margin-top: 2vh;
+    box-shadow: 5px 5px 5px black;
+    padding: 1vh;
+    border-radius: 15px;
 }
