@@ -10,30 +10,29 @@
     </head>
 
     <body>
-        <div class="table-container">
+        <div class="grid-container">
         </div>
         <div class="dialog-container">
-            <dialog id="add-book-dialog">
-                <form action="">
+            <dialog id="addBookDialog">
+                <form action="" method="dialog">
                     <p>
                         <label for="">
                             New Book:
-                            <input type="text" class="title-input" placeholder="Title">
-                            <input type="text" class="author-input" placeholder="Author">
-                            <input type="text" class="pages-input" placeholder="Pages">
-                            <input type="text" class="read-input" placeholder="Read(yes or no)">
+                            <input type="text" class=" input title-input" placeholder="Title">
+                            <input type="text" class="input author-input" placeholder="Author">
+                            <input type="text" class="input pages-input" placeholder="Pages">
+                            <input type="text" class="input read-input" placeholder="Read(yes or no)">
                         </label>
                     </p>
                     <div>
-                        <button value="cancel" formmethod="dialog">Cancel</button>
-                        <button id="confirmBtn" value="default">Confirm</button>
+                        <button type="button" value="cancel">Cancel</button>
+                        <button type="submit" id="confirmBtn">Confirm</button>
                     </div>
                 </form>
             </dialog>
             <p>
                 <button id="showDialog">Add a new book</button>
             </p>
-            <output></output>
         </div>
     </body>
 
