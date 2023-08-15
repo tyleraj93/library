@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 15px;
+}
+
+.grid-container {
+    display: grid;
+    gap: 5vw;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+}
