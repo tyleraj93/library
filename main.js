@@ -1,4 +1,4 @@
-class Book{
+class Book {
     constructor(title, author, pages, read) {
         this._title = title;
         this._author = author;
@@ -22,7 +22,6 @@ class Book{
         return this._read;
     }
 
-
     info() {
         if (this.read === true) {
             return `${this._title} by ${this._author}, ${this._pages} pages, read already`;
@@ -36,19 +35,12 @@ class Book{
     }
 }
 
+// Initialize an empty library
+const myLibrary = [];
+
 // Function to add a new Book to the library
 function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read));
-}
-
-// Function to clear input fields
-function clearInputs() {
-    [titleInput.value, authorInput.value, pagesInput.value, readInput.value] = [
-        "",
-        "",
-        "",
-        "",
-    ];
 }
 
 // Function to build the library display
@@ -104,9 +96,6 @@ function buildLibrary() {
     });
 }
 
-// Initialize an empty library
-const myLibrary = [];
-
 // Add some initial books to the library
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 addBookToLibrary("Awaken the Giant Within", "Anthony Robbins", 538, true);
@@ -120,10 +109,6 @@ const showButton = document.getElementById("showDialog");
 const addBookDialog = document.getElementById("addBookDialog");
 const confirmButton = addBookDialog.querySelector("#confirmBtn");
 const cancelButton = addBookDialog.querySelector("#cancelBtn");
-const titleInput = document.querySelector(".title-input");
-const authorInput = document.querySelector(".author-input");
-const pagesInput = document.querySelector(".pages-input");
-const readInput = document.querySelector(".read-input");
 
 // Event listeners for showing, canceling, and confirming book addition
 showButton.addEventListener("click", () => {
@@ -131,20 +116,25 @@ showButton.addEventListener("click", () => {
 });
 
 cancelButton.addEventListener("click", () => {
-    clearInputs();
+    document.getElementById("formId").reset();
     addBookDialog.close();
 });
 
 confirmButton.addEventListener("click", (event) => {
+    const titleInput = document.querySelector(".title-input");
+    const authorInput = document.querySelector(".author-input");
+    const pagesInput = document.querySelector(".pages-input");
+    const checkedReadInput = document.querySelector(
+        "input[name='read']:checked"
+    );
     event.preventDefault();
-    const readValue = readInput.value.toLowerCase() === "yes" ? true : false;
     addBookToLibrary(
         titleInput.value,
         authorInput.value,
         pagesInput.value,
-        readValue
+        JSON.parse(checkedReadInput.value)
     );
-    clearInputs();
+    document.getElementById("formId").reset();
     buildLibrary();
     addBookDialog.close();
 });
