@@ -14,16 +14,33 @@
         </div>
         <div class="dialog-container">
             <dialog id="addBookDialog">
-                <form action="" method="dialog">
-                    <p>
-                        <label for="">
-                            New Book:
-                            <input type="text" class=" input title-input" placeholder="Title">
-                            <input type="text" class="input author-input" placeholder="Author">
-                            <input type="text" class="input pages-input" placeholder="Pages">
-                            <input type="text" class="input read-input" placeholder="Read(yes or no)">
-                        </label>
-                    </p>
+                <form id="formId">
+                    <h2>New Book:</h2>
+                    <div>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class=" input title-input" placeholder="Title" required>
+                    </div>
+                    <div>
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author" class="input author-input" placeholder="Author" required>
+                    </div>
+                    <div>
+                        <label for="pages">Amount of pages:</label>
+                        <input type="number" id="pages" name="pages" class="input pages-input" min="1" pattern="\d+" required>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend id="readLegend">Have you read it?</legend>
+                            <div>
+                                <input type="radio" id="yes" name="read" value="true">
+                                <label for="yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="no" name="read" value="false" checked>
+                                <label for="no">No</label>
+                            </div>
+                        </fieldset>
+                    </div>
                     <div>
                         <button type="button" value="cancel" id="cancelBtn">Cancel</button>
                         <button type="submit" id="confirmBtn">Confirm</button>
